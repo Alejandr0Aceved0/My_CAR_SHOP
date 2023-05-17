@@ -4,35 +4,43 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import com.ingacev.navegaciones.databinding.FragmentCarsShopBinding
+import com.ingacev.navegaciones.ui.carsShop.adapter.CarsAdapter
+import kotlinx.coroutines.launch
 
 class CarsShopFragment : Fragment() {
 
     private var _binding: FragmentCarsShopBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private val viewModel: CarsShopViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(CarsShopViewModel::class.java)
-
         _binding = FragmentCarsShopBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        viewModel.viewModelScope.launch {
+            viewModel.getCars()
         }
+
         return root
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.data.observe(viewLifecycleOwner) { newData ->
+            val adapter = CarsAdapter(newData.vehicles)
+            binding.listCarsCarsShop.setAdapter(adapter)
+        }
     }
 
     override fun onDestroyView() {
