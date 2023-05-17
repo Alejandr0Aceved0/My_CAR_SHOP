@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_alt"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <ImageView
+        android:id="@+id/profilePhoto"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/icon_logo_app"
+        app:layout_constraintBottom_toTopOf="@+id/userNameContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/userNameContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black_inactive"
+        android:orientation="horizontal"
+        android:layout_margin="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/userDocumentNumberContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profilePhoto">
+
+        <TextView
+            android:id="@+id/txtUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario: "
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/inputUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Usuario: "
+            android:textSize="15sp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/userDocumentNumberContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black_inactive"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/userPassContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userNameContainer">
+
+        <TextView
+            android:id="@+id/txtUserDocumentNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="Usuario: "
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/inputUserDocumentNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Usuario: "
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userPassContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black_inactive"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userDocumentNumberContainer">
+
+        <TextView
+            android:id="@+id/txtUserPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario: "
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/inputUserPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Usuario: "
+            android:textSize="15sp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
