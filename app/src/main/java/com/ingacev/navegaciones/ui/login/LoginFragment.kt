@@ -27,15 +27,15 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = FragmentLoginBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        setContentView(binding.root)
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
 
-        val usernameEditText = findViewById<EditText>(R.id.username)
-        val passwordEditText = findViewById<EditText>(R.id.password)
-        val loginButton = findViewById<Button>(R.id.login)
-        val loadingProgressBar = findViewById<ProgressBar>(R.id.loading)
+        val usernameEditText = binding.username
+        val passwordEditText = binding.password
+        val loginButton = binding.login
+        val loadingProgressBar = binding.loading
 
         loginViewModel.loginFormState.observe(this,
             Observer { loginFormState ->
@@ -107,12 +107,12 @@ class LoginActivity : AppCompatActivity() {
         val welcome = getString(R.string.welcome) + model.displayName
         // TODO : initiate successful logged in experience
         val appContext = applicationContext
-        Toast.makeText(appContext, welcome, Toast.LENGTH_LONG).show()
+//        Toast.makeText(appContext, welcome, Toast.LENGTH_LONG).show()
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {
         val appContext = applicationContext
-        Toast.makeText(appContext, errorString, Toast.LENGTH_LONG).show()
+//        Toast.makeText(appContext, errorString, Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {
