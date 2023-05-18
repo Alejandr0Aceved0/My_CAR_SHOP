@@ -36,7 +36,9 @@ class CarsAdapter(private val cars: List<Vehicle>) : RecyclerView.Adapter<CarsAd
             brandTextView.text = vehicle.brand
             modelTextView.text = vehicle.model.toString()
             stateTextView.text = vehicle.state
-            Glide.with(itemView.context).load(vehicle.image).into(imageView)
+            Glide.with(itemView.context)
+                .load(vehicle.image)
+                .into(imageView)
         }
     }
 }
